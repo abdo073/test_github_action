@@ -25,15 +25,17 @@ jobs:
         run: npm ci
       - name: Build website
         run: npm run build
-      - name: Debug – show current directory
+      - name: Debug show current directory
         run: pwd
-      - name: Debug – list all files
+      - name: Debug list all files
         run: ls -R
       - name: Upload build
         uses: actions/upload-artifact@v4
         with:
           name: my-app-build
-          path: output/result.json
+          path: 
+            dist
+            package.json
   deploy:
     needs: build
     runs-on: ubuntu-latest
